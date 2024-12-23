@@ -64,6 +64,11 @@ export const ScholarshipProvider: FC<{ children: React.ReactNode }> = ({
   const { data, isPending: loadingScholarships } = useQuery({
     queryKey: ['useGetScholarships', JSON.stringify(filters)],
     queryFn: () => getScholarships(filters),
+    retry(failureCount) {
+      if (failureCount < 1) {
+        return true;
+      } else return false;
+    },
   });
 
   useEffect(() => {
