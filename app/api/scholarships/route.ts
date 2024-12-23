@@ -1,6 +1,5 @@
 import { getOpenAi } from '@/lib/config/openai';
 import { scholarshipFilters } from '@/lib/data';
-import aiSchemas from '@/lib/schemas/ai.schema';
 import { ScholarshipFilters } from '@/lib/types';
 import { NextRequest, NextResponse } from 'next/server';
 
