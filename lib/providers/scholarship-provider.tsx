@@ -92,7 +92,7 @@ export const useScholarships = () => {
 
   if (!context)
     throw new Error(
-      'ScholarshipContext not found in our widget tree, ensure to wrap your app with ScholarshipProvider'
+      'ScholarshipContext not found in your widget tree, ensure to wrap your app with ScholarshipProvider'
     );
 
   return context;

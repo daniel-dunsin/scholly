@@ -19,7 +19,7 @@ type Props = {
   disabled?: boolean;
   fullWidth?: boolean;
   loading?: boolean;
-  onClick?: Function;
+  onClick?(): void;
 } & DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -36,7 +36,6 @@ const Button: FC<Props> = (props) => {
     disabled = false,
     loading = false,
     iconPosition = 'right',
-    rounded = 'md',
     fullWidth = false,
     role,
     ...rest

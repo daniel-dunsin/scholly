@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Scholarship, ScholarshipFilters } from '../types';
 import axios from 'axios';
 import { toast } from 'sonner';
