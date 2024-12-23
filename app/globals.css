@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::selection {
+  @apply bg-brandLight text-brand;
+}
+
+::-moz-selection {
+  @apply bg-brandLight text-brand;
+}

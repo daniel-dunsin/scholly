@@ -51,6 +51,7 @@ const MobileNavbar: FC<Props> = ({ close }) => {
             <li key={idx}>
               <Link
                 href={link.route}
+                onClick={close}
                 className="text-center text-white text-[1.4rem] hover:underline transition-all duration-300 font-giestMono"
               >
                 {link.name}
