@@ -28,7 +28,9 @@ export const getScholarships = async (filter?: ScholarshipFilters) => {
 
     return response?.data?.result?.scholarships;
   } catch (error) {
-    toast.error('AI rate limit exceeded, using dummy data for now');
+    toast.error('AI rate limit exceeded, using dummy data for now', {
+      duration: 300,
+    });
     return scholarships;
   }
 };
