@@ -56,7 +56,7 @@ Number of Results: Provide a list of at least 20 scholarships. Ensure diversity 
   
   
   Style: The response should be well-structured, without extraneous text, and easily parseable.
-  example schema: ${JSON.stringify(aiSchemas.scholarship)}
+  
 `,
         },
       ],

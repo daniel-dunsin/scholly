@@ -9,6 +9,7 @@ import React, {
 import { Scholarship, ScholarshipFilters } from '../types';
 import { useQuery } from '@tanstack/react-query';
 import { getScholarships } from '../services';
+import { scholarships as dummyScholarships } from '../data';
 
 interface ScholarshipContextProps {
   scholarships: Scholarship[];
@@ -23,10 +24,10 @@ const ScholarshipContext = createContext<ScholarshipContextProps | null>(null);
 export const ScholarshipProvider: FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [scholarships, setScholarships] = useState<Scholarship[]>([]);
-  const [filteredScholarships, setFilteredScholarships] = useState<
-    Scholarship[]
-  >([]);
+  const [scholarships, setScholarships] =
+    useState<Scholarship[]>(dummyScholarships);
+  const [filteredScholarships, setFilteredScholarships] =
+    useState<Scholarship[]>(dummyScholarships);
 
   const [filters, setFilters] = useState<ScholarshipFilters>({
     country: undefined,
@@ -65,10 +66,9 @@ export const ScholarshipProvider: FC<{ children: React.ReactNode }> = ({
     queryKey: ['useGetScholarships', JSON.stringify(filters)],
     queryFn: () => getScholarships(filters),
     retry(failureCount) {
-      if (failureCount < 1) {
-        return true;
-      } else return false;
+      return failureCount < 1;
     },
+    refetchOnWindowFocus: false,
   });
 
   useEffect(() => {

@@ -3,6 +3,7 @@
 import { Scholarship, ScholarshipFilters } from '../types';
 import axios from 'axios';
 import { toast } from 'sonner';
+import { scholarships } from '../data';
 
 export const getScholarships = async (filter?: ScholarshipFilters) => {
   let url = `/api/scholarships?`;
@@ -26,8 +27,8 @@ export const getScholarships = async (filter?: ScholarshipFilters) => {
     }>(url);
 
     return response?.data?.result?.scholarships;
-  } catch (error: any) {
-    toast.error(error?.response?.data ?? error?.toString() ?? 'Error Occured');
-    throw error;
+  } catch (error) {
+    toast.error('AI rate limit exceeded, using dummy data for now');
+    return scholarships;
   }
 };

@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 import { FaGraduationCap } from 'react-icons/fa';
 import { FcGraduationCap } from 'react-icons/fc';
@@ -8,8 +9,12 @@ interface Props {
 }
 
 const Logo: FC<Props> = ({ color = 'brand' }) => {
+  const router = useRouter();
   return (
-    <div className="flex items-center space-x-2 text-[1rem] md:text-[2rem] font-bold min-w-[150px]">
+    <div
+      onClick={() => router.push('/')}
+      className="flex items-center space-x-2 text-[1rem] md:text-[2rem] font-bold min-w-[150px] cursor-pointer"
+    >
       {color == 'brand' ? (
         <FcGraduationCap className="text-[1.5rem] md:text-[2.5rem]" />
       ) : (
